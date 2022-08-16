@@ -14,6 +14,26 @@ public class AlbumService {
     @Autowired
     private AlbumRepository albumRepository;
 
+    public Album saveAlbum(Album album){
+        return albumRepository.save(album);
+
+    }
+
+    public List<Album> getAllAlbums() {
+        return albumRepository.findAll();
+    }
+
+    public Album updateAlbum( Album album) {
+
+        return albumRepository.save(album);
+    }
+
+    public void deleteAlbum(String albumId) {
+         albumRepository.deleteById(albumId);
+    }
+
+
+    /*
     public Album getAlbumById(int albumId) {
         return albumRepository.getAlbumId(albumId);
     }
@@ -22,10 +42,7 @@ public class AlbumService {
         return albumRepository.getAlbum();
     }
 
-    public Album saveAlbum(Album album){
-         return albumRepository.saveAlbum(album);
 
-    }
 
     public List<Album> getAllAlbums() {
         return albumRepository.getAllUsers();
@@ -41,4 +58,6 @@ public class AlbumService {
     public Album deleteAlbum(int albumId) {
         return albumRepository.deleteAlbum(albumId);
     }
+
+     */
 }

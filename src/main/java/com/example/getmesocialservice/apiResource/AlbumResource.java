@@ -8,30 +8,48 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/albums")
 public class AlbumResource {
 
-    @Autowired AlbumService albumService;
+    @Autowired
+     private AlbumService albumService;
+
+    @PostMapping
+    public Album saveAlbum(@RequestBody Album album){
+
+        return albumService.saveAlbum(album);
 
 
+    }
 
+    @GetMapping
+    public List<Album> getAllAlbums(){
+        return albumService.getAllAlbums();
+    }
+
+    @PutMapping
+    public Album updateAlbum( @RequestBody Album album){
+        return albumService.updateAlbum(album);
+    }
+
+    @DeleteMapping
+    public void deleteAlbum(@RequestParam(name ="albumId") String albumId){
+
+         albumService.deleteAlbum(albumId);
+
+    }
+
+
+    /*
     @GetMapping("/album")
     public Album getAlbum(){
         return  albumService.getAlbum();
 
     }
 
-    @PostMapping("/album")
-    public Album saveAlbum(@RequestBody Album album){
 
-        return albumService.saveAlbum(album);
 
-    }
 
-    @GetMapping("/allAlbums")
-    public List<Album> getAllAlbums(){
-        return albumService.getAllAlbums();
-    }
 
 
     @GetMapping("/album/{albumId}")
@@ -51,6 +69,8 @@ public class AlbumResource {
         return albumService.deleteAlbum(albumId);
 
     }
+
+     */
 
 
 
