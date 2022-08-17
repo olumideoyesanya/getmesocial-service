@@ -32,6 +32,10 @@ public class PhotoService {
         photoRepository.delete(photo);
     }
 
+    public List<Photo> getById(String id) {
+        return photoRepository.findAllById(id);
+    }
+
     /*
     public Photo getPhoto() {
         return photoRepository

@@ -33,6 +33,12 @@ public class AlbumService {
     }
 
 
+
+    public List<Album> getById(String id) {
+        return albumRepository.findAllById(id);
+    }
+
+
     /*
     public Album getAlbumById(int albumId) {
         return albumRepository.getAlbumId(albumId);

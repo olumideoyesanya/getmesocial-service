@@ -1,5 +1,7 @@
 package com.example.getmesocialservice.apiResource;
 
+import com.example.getmesocialservice.model.Album;
+import com.example.getmesocialservice.model.Comment;
 import com.example.getmesocialservice.model.Photo;
 import com.example.getmesocialservice.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,14 @@ public class PhotoResource {
         return photoService.savePhoto(photo);
 
     }
-
+    @GetMapping
     public List<Photo> getAllPhotos(){
         return photoService.getAllPhotos();
+    }
+
+    @GetMapping("/get-by-id")
+    public List<Photo> getById(@RequestParam(name = "id") String id){
+        return photoService.getById(id);
     }
 
     @PutMapping
@@ -38,4 +45,6 @@ public class PhotoResource {
         photoService.deletePhoto(photo);
 
     }
+
+
 }

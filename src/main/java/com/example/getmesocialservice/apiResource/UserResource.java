@@ -1,5 +1,6 @@
 package com.example.getmesocialservice.apiResource;
 
+import com.example.getmesocialservice.model.Comment;
 import com.example.getmesocialservice.model.Photo;
 import com.example.getmesocialservice.model.User;
 import com.example.getmesocialservice.service.UserService;
@@ -24,6 +25,11 @@ public class UserResource {
     @GetMapping
     public List<User> getAllUsers(){
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/get-by-id")
+    public List<User> getById(@RequestParam(name = "id") String id){
+        return userService.getById(id);
     }
 
     @PutMapping

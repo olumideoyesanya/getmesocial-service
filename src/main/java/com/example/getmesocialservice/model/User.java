@@ -9,11 +9,13 @@ public class User {
     private String email;
     private String ProfilePhotoUrl;
 
+    public User() {
+    }
 
     public User(String name, String email, String profilePhotoUrl) {
         this.name = name;
         this.email = email;
-        ProfilePhotoUrl = profilePhotoUrl;
+        this.ProfilePhotoUrl = profilePhotoUrl;
     }
 
     public String getId() {
@@ -45,7 +47,7 @@ public class User {
     }
 
     public void setProfilePhotoUrl(String profilePhotoUrl) {
-        ProfilePhotoUrl = profilePhotoUrl;
+        this.ProfilePhotoUrl = profilePhotoUrl;
     }
 }
 

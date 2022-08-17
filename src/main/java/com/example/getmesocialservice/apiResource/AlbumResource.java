@@ -27,6 +27,11 @@ public class AlbumResource {
         return albumService.getAllAlbums();
     }
 
+    @GetMapping("/get-by-id")
+    public List<Album> getById(@RequestParam(name = "id") String id){
+       return albumService.getById(id);
+    }
+
     @PutMapping
     public Album updateAlbum( @RequestBody Album album){
         return albumService.updateAlbum(album);
@@ -38,6 +43,10 @@ public class AlbumResource {
          albumService.deleteAlbum(albumId);
 
     }
+
+
+
+
 
 
     /*

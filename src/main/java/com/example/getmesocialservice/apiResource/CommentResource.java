@@ -1,5 +1,6 @@
 package com.example.getmesocialservice.apiResource;
 
+import com.example.getmesocialservice.model.Album;
 import com.example.getmesocialservice.model.Comment;
 import com.example.getmesocialservice.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class CommentResource {
     @GetMapping
     public List<Comment> getAllComments(){
         return commentService.getAllComments();
+    }
+
+    @GetMapping("/get-by-id")
+    public List<Comment> getById(@RequestParam(name = "id") String id){
+        return commentService.getById(id);
     }
 
     @PutMapping
