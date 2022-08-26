@@ -5,6 +5,7 @@ import com.example.getmesocialservice.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -15,7 +16,7 @@ public class AlbumResource {
      private AlbumService albumService;
 
     @PostMapping
-    public Album saveAlbum(@RequestBody Album album){
+    public Album saveAlbum(@RequestBody @Valid Album album){
 
         return albumService.saveAlbum(album);
 
@@ -29,6 +30,9 @@ public class AlbumResource {
 
     @GetMapping("/get-by-id")
     public List<Album> getById(@RequestParam(name = "id") String id){
+
+
+
        return albumService.getById(id);
     }
 

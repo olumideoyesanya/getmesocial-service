@@ -2,11 +2,18 @@ package com.example.getmesocialservice.model;
 
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 public class User {
     @Id
     private String id;
     private String name;
+
+    @Email
     private String email;
+
+    @NotEmpty
     private String ProfilePhotoUrl;
 
     public User() {

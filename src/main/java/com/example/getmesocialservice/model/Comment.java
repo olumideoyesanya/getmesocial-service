@@ -1,13 +1,18 @@
 package com.example.getmesocialservice.model;
 
+import com.example.getmesocialservice.validation.ValidName;
 import org.springframework.data.annotation.Id;
+
+import javax.validation.constraints.Min;
 
 public class Comment {
 
     @Id
     private String Id;
     private int photoId;
+    @Min(value = 5)
     private String message;
+    @ValidName
     private String createdBy;
     private String dateCreated;
 
